@@ -8,5 +8,14 @@
 */
 
 import router from '@adonisjs/core/services/router'
+const HomeController = () => import('#controllers/home_controller')
 
-router.on('/').render('pages/home')
+
+
+router.get('/', [HomeController, 'index'])
+
+const ProfileController = () => import('#controllers/profiles_controller')
+router.get('/:username', [ProfileController,'show'])
+
+    
+

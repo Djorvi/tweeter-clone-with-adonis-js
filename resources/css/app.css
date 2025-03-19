@@ -1,10 +1,427 @@
-* {
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    background: #000;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
+.Block-flex{
+    display: flex;
+}
+
+.icons-x{
+    padding-left: 9%;
+    padding-top: 1px;
+    position: fixed; 
+    flex: 1;
+    
+}
+
+.menu-bar  {
+    font-size: 19px;
+    color: #d9d9d9ee;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding-left: 10px;
+    padding-top: 2ch;
+}
+
+
+
+  
+.Home-Home {
+    font-size: 106%;
+    font-weight: 600;
+    display: flex;
+    gap: 15px;
+    color: #f1eeee;
+    
+    
+}
+.icone-menu-X {
+    width: 46px;
+    height: 36px;
+
+   
+}
+
+li {
+    display: flex;
+    gap: 20px;
+    background: #000000;
+    border-radius: 20px 20px 20px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.8s ease; /* Transition pour l'animation */
+    outline: none;
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.2); /* Fond plus clair au survol */
+    border-color: rgba(255, 255, 255, 0.4); /* Bordure plus visible */
+    ; /* Légère augmentation de la taille */
+  }
+
+  li:active {
+    background: rgba(255, 255, 255, 0.3); /* Fond encore plus clair au clic */
+    transform: scale(0.95); /* Légère réduction de la taille */
+  }
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+
+
+
+
+.Button{
+    padding-top: 15px;
+}
+.disabled{
+    border-radius: 40px 40px 40px 40px;
+    border: 1px solid #ffffff;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 15px 15px;
+    width: 120%;   
+}
+
+
+
+.profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile{
+    padding-top: 10%;
+    display: flex;
+    color: #fff;
+    gap: 10px;
+    padding-left: 13px;
+}
+.ObedMbora{
+    padding-top: 4%;
+    color: #d1d1d1;
+    font-size: 13px;
+}
+.obed-Mbora a{
+    padding-top: 5%;
+    color: #fff;
+    text-decoration: none;
+    
+}
+
+
+
+
+
+
+/*-- Fil d'actualité --*/
+
+.main-content{
+    border: 1px solid rgb(47, 47, 47);
+    margin-left: 26%;
+    width: 40%;
+    
+}
+
+.Deux-Button{
+    border: 1px solid rgb(47, 47, 47);
+    width: 100%;
+    height: 60px;
+}
+
+.Deux-Button-flex{
+    display: flex;
+    font-size: 20px;
+    gap: 40%;
+    margin-left: 25%;
+}
+
+.Bnt1 p {
+    color: #eeee;
+    font-size: 15px;
+    font-weight: 500;
+    padding-top: 39%;
+}
+
+.Cherche{
+    border: 1px solid rgb(47, 47, 47);
+    width: 100%;
+    height: 140px;
+    display: flex;  
+    padding-top: 4%;
+    padding-left: 4%;
+}
+.profile-img{
+    display: flex;
+    
+}
+
+
+.taille{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.search-bos input{
+    padding: 15px;
+    color: #ffffff;
+    border: none;
+    font-size: 20px;
+}
+
+.icnon-flex{
+    display: flex;
+    font-size: 18px;
+    padding-top: 5%;
+    gap: 20%;
+}
+
+.icone-Notifications{
+    padding-left: 18px;
+    padding-top: 10px;
+    display: flex;
+    gap: 160%;
+
+}
+
+.button3{
+    border-radius: 40px 40px 40px 40px;
+    border: 1px solid #979595;
+    background: #a09f9f;
+    color: #000000;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 20px;
+    
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Conteneur principal */
+.Notifications {
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    position: fixed;
+    margin-left: 67%;
+
+    
+}
+
+/* Barre de recherche */
+.search-box {
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    border: 1px solid rgb(47, 47, 47);
+    color: #ffffff;
+}
+
+/* Section Premium */
+.premium-box {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.premium-box h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.subscribe-btn {
+    background: #00acee;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 4%;
+    width: 40%;
+}
+
+/* Section Erreur de connexion */
+.connection-box {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 25%;
+    border-radius: 10px;
+}
+
+.retry-btn {
+   
+  
+    cursor: pointer;
+}
+
+.connection-box2 {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 22%;
+    border-radius: 10px;
+    margin-top: 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.actualite{
+    border: 1px solid rgb(47, 47, 47);
+}
+
+.tweet {
+
+    padding: 15px;
+    width: 500px;
+    
+}
+
+.tweet-header {
+    display: flex;
+}
+
+.profil-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.username {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.verified {
+    color: #1DA1F2;
+}
+
+.handle {
+    color: #8899A6;
+}
+
+.tweet-text {
+    margin-top: 10px;
+    margin-left: 60px;
+    width: 100%;
+    color: #fff;
+}
+
+.tweet-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-left: 12%;
+}
+img{
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;   
+}
+
+.tweet-footer {
+    display: flex;
+    gap: 16%;
+    margin-top: 10px;
+    padding-left: 12%;
+}
+
+.icon {
+    cursor: pointer;
+    color: #8899A6;
+}
+
+.icon:hover {
+    color: #1DA1F2;
+    
+}
+
+
+.tweet-video {
+    margin-top: 10px;
+    display: flex;
+    padding-left: 12%;
+    
+}
+
+.tweet-video video {
+    width: 120%;
+    border-radius: 10px;
+    max-height: 300px; /* Ajuste la hauteur si nécessaire */
+}
+
+.bx-dots-horizontal-rounded{
+    padding-left: 30px;
+}
+
+
+.bx-search, .bx-home-alt-2, 
+.bx-bell, .bx-envelope,
+.bxl-blender, .bx-bookmark,
+.bx-badge-check, .bxs-bolt,
+.bx-user, .bx-cog{
+    font-size: 30px;
+
 }
