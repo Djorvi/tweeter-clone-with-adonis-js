@@ -18,3 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".tab");
+    const indicator = document.querySelector(".tab-indicator");
+
+    tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+            // Supprime la classe active de tous les onglets
+            tabs.forEach(t => t.classList.remove("active"));
+            tab.classList.add("active");
+
+            // Déplace l'indicateur sous l'onglet sélectionné
+            indicator.style.transform =  `translateX(${index * 100}%)`;
+        });
+    });
+});
