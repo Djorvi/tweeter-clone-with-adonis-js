@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Profil - Obed Mbora</title><link rel="stylesheet" href="/resources/css/login.css"/>
+<script type="module" src="/@vite/client"></script>
+<script type="module" defer src="/resources/js/app.js"></script>
+
+
+</head>
+<body>
+    <!-- Page de connexion -->
+    <div class="container_flex">
+
+        <div class="header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="480" height="480" fill="#fff">
+                    <g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 
+                        21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g>
+                </svg>
+            </div>
+        </div>
+        <div class="container" id="login-page">        
+            <div class="main-content">
+                <h1>ça se passe maintenat</h1>
+        
+                <div class="incr">
+                        <h2>Inscrivez-vous</h2>
+                    </div>
+                
+                <!-- Compte sauvegardé -->
+                <div class="account-item" id="saved-account">
+                    <div class="account-avatar">O</div>
+                    <div class="account-details">
+                        <div>Se connecter en tant que Obed</div>
+                        <div class="account-email">obedmbora60@gmail.com</div>
+                    </div>
+                </div>
+            
+                
+                <button class="btn btn-outline">
+                    <i class="fab fa-apple" style="margin-right: 10px;"></i>
+                    Se connecter avec Apple
+                </button>
+                
+                <div class="divider">ou</div>
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Numéro de téléphone, adresse email" id="login-identifier">
+                </div>
+                
+                <button class="btn btn-white" id="login-next-btn">Suivant</button>
+                
+                <div style="text-align: center; margin-top: 16px;">
+                    <a href="#" style="color: #1d9bf0;">Mot de passe oublié ?</a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <span>Vous n'avez pas de compte ? </span>
+                    <a href="#" style="color: #1d9bf0;" id="signup-link">Inscrivez-vous</a>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="#">À propos</a>
+                <a href="#">Centre d'assistance</a>
+                <a href="#">Conditions d'utilisation</a>
+                <a href="#">Politique de confidentialité</a>
+                <a href="#">Politique relative aux cookies</a>
+                <a href="#">Accessibilité</a>
+                <a href="#">Informations sur les publicités</a>
+                <a href="#">Blog</a>
+                <a href="#">Statut</a>
+                <a href="#">Carrières</a>
+                <a href="#">Ressources de la marque</a>
+                <a href="#">Publicité</a>
+                <a href="#">Marketing</a>
+                <a href="#">X pour les professionnels</a>
+                <a href="#">Développeurs</a>
+                <a href="#">Répertoire</a>
+                <a href="#">Paramètres</a>
+                <span>© 2023 X Corp.</span>
+            </div>
+        </div>
+
+        
+        <!-- Page d'inscription (cachée) -->
+        <div class="container" id="signup-page" style="display: none;">
+    
+            <div class="main-content">
+                <h1>Créer votre compte</h1>
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Nom et prénom" id="fullname">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Téléphone" id="phone">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Utiliser un email" id="email">
+                </div>
+                
+                <div class="birthday-section">
+                    <div class="birthday-title">Date de naissance</div>
+                    <div class="birthday-description">
+                        Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.
+                    </div>
+                    
+                    <div class="birthday-fields">
+                        <div class="birthday-field">
+                            <select id="birth-month">
+                                <option value="" disabled selected>Mois</option>
+                                <!-- Mois seront ajoutés par JS -->
+                            </select>
+                        </div>
+                        
+                        <div class="birthday-field">
+                            <select id="birth-day">
+                                <option value="" disabled selected>Jour</option>
+                                <!-- Jours seront ajoutés par JS -->
+                            </select>
+                        </div>
+                        
+                        <div class="birthday-field">
+                            <select id="birth-year">
+                                <option value="" disabled selected>Année</option>
+                                <!-- Années seront ajoutés par JS -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="btn btn-blue" id="signup-next-btn">Suivant</button>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <span>Vous avez déjà un compte ? </span>
+                    <a href="#" style="color: #1d9bf0;" id="login-from-signup">Se connecter</a>
+                </div>
+            </div>
+            
+            <div class="footer">    
+                <!-- Même footer que la page de connexion -->
+            </div>
+        </div>
+    <!-- Menu déroulant profil -->
+    <div class="profile-dropdown" id="profile-dropdown">
+        <div class="dropdown-item" id="logout-btn">
+            <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Se déconnecter
+        </div>
+        <div class="dropdown-item" id="add-account-btn">
+            <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Ajouter un autre compte
+        </div>
+    </div>
+
+    
+    </div>
+</body>
+</html>
