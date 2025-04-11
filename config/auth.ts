@@ -1,27 +1,15 @@
 import { defineConfig } from '@adonisjs/auth'
-import { basicAuthGuard, basicAuthUserProvider } from '@adonisjs/auth/basic_auth'
-import type { InferAuthenticators, InferAuthEvents, Authenticators } from '@adonisjs/auth/types'
+import { sessionGuard, sessionUserProvider } from '@adonisjs/auth/session'
 
-const authConfig = defineConfig({
-  default: 'basicAuth',
+export default defineConfig({
+  default: 'web',
   guards: {
-    basicAuth: basicAuthGuard({
-      provider: basicAuthUserProvider({
-        model: () => import('#models/user')
+    web: sessionGuard({
+      provider: sessionUserProvider({
+        model: () => import('#models/user'),
+        uids: ['email']
       }),
-    }),
-  },
+      useRememberMeTokens: false
+    })
+  }
 })
-
-export default authConfig
-
-/**
- * Inferring types from the configured auth
- * guards.
- */
-declare module '@adonisjs/auth/types' {
-  export interface Authenticators extends InferAuthenticators<typeof authConfig> {}
-}
-declare module '@adonisjs/core/types' {
-  interface EventsList extends InferAuthEvents<Authenticators> {}
-}

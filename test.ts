@@ -31,6 +31,7 @@ export const tweets: Tweet[] = [
         createdAt: new Date(),
         user:2
     },
+
     {
         id: 3,
         content: 'developpeur leravel',
@@ -89,6 +90,11 @@ export const tweets: Tweet[] = [
     }, 
 ]
 
+
+
+
+
+
 export const users: User[] = [
     {
         id: 1,
@@ -138,7 +144,7 @@ export const users: User[] = [
     {
         id: 6,
         firstname: "Rethas",
-        lastname: "Sacret", 
+        lastname: "Sacret",
         username: "obed@25",
         avatar : "https://exemple.com/avatar1.jpg",
         bio : "Je suis le meilleur développeur front end de ma salle",
@@ -154,3 +160,8 @@ export const users: User[] = [
         createdAt: new Date()
     }
 ]
+
+
+
+
+

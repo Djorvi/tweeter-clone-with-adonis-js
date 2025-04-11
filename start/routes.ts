@@ -7,27 +7,36 @@
 |
 */
 
-import router from '@adonisjs/core/services/router'
 const HomeController = () => import('#controllers/home_controller')
-
-
-
-router.get('/',[HomeController, 'index'])
-
 const ProfileController = () => import('#controllers/profiles_controller')
+const UsersController = () => import('#controllers/users_controller')
+
+
+import router from '@adonisjs/core/services/router'
+
+// Routes protégées avec middleware auth 
+router.get('/',[HomeController, 'index'])
 router.get('/profile', [ProfileController,'show'])
 
 
-/* je créer le chemin vers une page de login  */
-
-const SimpleController  = () => import('#controllers/auth_controller')
-router.get('/login', [SimpleController,'login'])
 
 
+import { middleware } from '#start/kernel'
 
+// Routes publiques
+router.get(':/', [UsersController, 'showLoginPage']).as('loginPage')
+router.post('/login', [UsersController, 'login']).as('login')
+router.get('/register', [UsersController, 'showRegisterPage']).as('registerPage')
+router.post('/register', [UsersController, 'register']).as('register')
+router.post('/logout', [UsersController, 'logout']).as('logout')
 
-
-
+// Routes protégées
+router
+  .group(() => {
+    router.get('/home', [HomeController, 'index']).as('home')
+    // ... autres routes protégées
+  })
+  .use(middleware.auth())
 
 
 

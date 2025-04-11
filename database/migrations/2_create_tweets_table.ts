@@ -16,4 +16,4 @@ export default class Tweets extends BaseSchema {
   public async down() {
     this.schema.dropTable(this.tableName)
   }
-}zzzz
+}

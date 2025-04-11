@@ -1,38 +1,23 @@
-import type { HttpContext } from '@adonisjs/core/http'
+import Tweet from 'App/Models/Tweet'
 
 export default class TweetsController {
-  /**
-   * Display a list of resource
-   */
-  async index({}: HttpContext) {}
+  public async index() {
+    const tweets = await Tweet.query()
+      .preload('user')
+      .orderBy('created_at', 'desc')
+    
+    return tweets
+  }
 
-  /**
-   * Display form to create a new record
-   */
-  async create({}: HttpContext) {}
+  public async store({ request, auth }) {
+    const user = auth.user!
+    const { content, image } = request.only(['content', 'image'])
 
-  /**
-   * Handle form submission for the create action
-   */
-  async store({ request }: HttpContext) {}
+    const tweet = await user.related('tweets').create({
+      content,
+      image
+    })
 
-  /**
-   * Show individual record
-   */
-  async show({ params }: HttpContext) {}
-
-  /**
-   * Edit individual record
-   */
-  async edit({ params }: HttpContext) {}
-
-  /**
-   * Handle form submission for the edit action
-   */
-  async update({ params, request }: HttpContext) {}
-
-  /**
-   * Delete record
-   */
-  async destroy({ params }: HttpContext) {}
+    return tweet
+  }
 }

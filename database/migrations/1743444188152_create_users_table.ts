@@ -1,22 +1,19 @@
-import { BaseSchema} from '@adonis/Lucid/Schema'
+import { BaseSchema } from '@adonisjs/lucid/schema'
 
-
-export default class CreateUsersTable extends BaseSchema {
+export default class extends BaseSchema {
   protected tableName = 'users'
 
-  public async up() {
-    this.schema.createTable(this.tableName, (table) => {
+  async up() {
+    this.schema.createTable('users', (table) => {
       table.increments('id').primary()
-      table.string('username').notNullable().unique()
       table.string('email').notNullable().unique()
       table.string('password').notNullable()
-      table.string('avatar').nullable()
-      table.text('bio').nullable()
-      table.timestamps(true)  // Utilisez cette méthode au lieu de déclarer created_at/updated_at manuellement
+      table.string('remember_me_token').nullable() // Si nécessaire
+      table.timestamps(true)
     })
   }
 
-  public async down() {
+  async down() {
     this.schema.dropTable(this.tableName)
   }
 }
