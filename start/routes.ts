@@ -9,7 +9,6 @@
 
 const HomeController = () => import('#controllers/home_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
-const UsersController = () => import('#controllers/users_controller')
 
 
 import router from '@adonisjs/core/services/router'
@@ -18,13 +17,13 @@ import router from '@adonisjs/core/services/router'
 router.get('/',[HomeController, 'index'])
 router.get('/profile', [ProfileController,'show'])
 
-
-
-
 import { middleware } from '#start/kernel'
 
+const UsersController = () => import('#controllers/users_controller')
+
+
 // Routes publiques
-router.get(':/', [UsersController, 'showLoginPage']).as('loginPage')
+router.get('/login', [UsersController, 'showLoginPage']).as('loginPage')
 router.post('/login', [UsersController, 'login']).as('login')
 router.get('/register', [UsersController, 'showRegisterPage']).as('registerPage')
 router.post('/register', [UsersController, 'register']).as('register')

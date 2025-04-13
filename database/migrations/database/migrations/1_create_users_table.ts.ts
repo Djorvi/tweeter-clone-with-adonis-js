@@ -4,11 +4,12 @@ export default class extends BaseSchema {
   protected tableName = 'users'
 
   async up() {
-    this.schema.createTable('users', (table) => {
+    this.schema.createTable(this.tableName, (table) => {
       table.increments('id').primary()
+      table.string('full_name').notNullable()
       table.string('email').notNullable().unique()
       table.string('password').notNullable()
-      table.string('remember_me_token').nullable() // Si nécessaire
+      table.string('remember_me_token').nullable()
       table.timestamps(true)
     })
   }
@@ -17,4 +18,3 @@ export default class extends BaseSchema {
     this.schema.dropTable(this.tableName)
   }
 }
-

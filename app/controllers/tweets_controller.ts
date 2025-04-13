@@ -1,23 +1,54 @@
-import Tweet from 'App/Models/Tweet'
+import { HttpContext } from '@adonisjs/core/http'
+import Tweet from '#models/tweet'
 
 export default class TweetsController {
-  public async index() {
+  /**
+   * Affiche la liste des tweets (vue HTML)
+   */
+  async index({ view }: HttpContext) {
     const tweets = await Tweet.query()
       .preload('user')
       .orderBy('created_at', 'desc')
-    
-    return tweets
+    return view.render('tweets/index', { tweets })
   }
 
-  public async store({ request, auth }) {
-    const user = auth.user!
-    const { content, image } = request.only(['content', 'image'])
+  /**
+   * Crée un nouveau tweet (formulaire HTML)
+   */
+  async store({ auth, request, response }: HttpContext) {
+    const user = auth.getUserOrFail()
+    const content = request.input('content')
 
-    const tweet = await user.related('tweets').create({
-      content,
-      image
+    await Tweet.create({
+      userId: user.id,
+      content
     })
 
-    return tweet
+    return response.redirect().back()
+  }
+
+  /**
+   * Liste des tweets (API JSON)
+   */
+  async apiIndex({ response }: HttpContext) {
+    const tweets = await Tweet.query()
+      .preload('user')
+      .orderBy('created_at', 'desc')
+    return response.json(tweets)
+  }
+
+  /**
+   * Crée un tweet (API JSON)
+   */
+  async apiStore({ auth, request, response }: HttpContext) {
+    const user = auth.getUserOrFail()
+    const content = request.input('content')
+
+    const tweet = await Tweet.create({
+      userId: user.id,
+      content
+    })
+
+    return response.json(tweet)
   }
 }

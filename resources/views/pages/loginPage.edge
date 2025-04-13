@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Profil - Obed Mbora</title>
+    @vite(['resources/css/login.css'])
+    @stack('dumper')
+
+</head>
+<body>
+  <div class="container" id="login-page">        
+    <div class="main-content">
+      <h1>Ça se passe maintenant</h1>
+  
+      <div class="incr">
+        <h2>Inscrivez-vous</h2>
+      </div>
+  
+      <form method="POST" action="{{ route('login') }}" style="width: 100%;">
+        {{ csrfField() }}
+        
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email" style="width: 70%;">
+        </div>
+        
+        <div class="form-group">
+          <input type="password" name="password" placeholder="Mot de passe" style="width: 70%;">
+        </div>
+        
+        <button type="submit" class="btn btn-white" style="width: 70%;">Se connecter</button>
+      </form>
+      
+      <div class="divider">ou</div>
+      
+      <a href="{{ route('registerPage') }}" class="btn btn-white" style="width: 70%; text-align: center; text-decoration: none;">
+        Créer un compte
+      </a>
+      
+      <p style="margin: 1rem 0; font-size: 0.7rem; width: 67%; color:#71767b;">
+        En vous inscrivant, vous acceptez les <a href="#">Conditions d'utilisation</a> et la <a href="#">Politique de confidentialité</a>, 
+        y compris l'<a href="#">Utilisation des cookies</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
