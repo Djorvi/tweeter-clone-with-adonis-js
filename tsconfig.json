@@ -1,7 +1,12 @@
 {
   "extends": "@adonisjs/tsconfig/tsconfig.app.json",
   "compilerOptions": {
-    "moduleResolution": "node16"
+    "moduleResolution": "node16",
+    "baseUrl": "./",
+    "paths": {
+      "#models/*": ["./app/models/*"],
+      "#controllers/*": ["./app/controllers/*"]
+    }
   },
   "include": ["**/*"]
 }

@@ -10,6 +10,6 @@ export default class HomeController {
   public async index({ view }: HttpContext) {
     // const currentUser 
 
-    return view.render('pages/home', {  })
+    return view.render('pages/loginPage', {  })
   }
 }

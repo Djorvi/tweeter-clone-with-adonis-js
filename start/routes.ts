@@ -9,8 +9,6 @@
 
 const HomeController = () => import('#controllers/home_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
-
-
 import router from '@adonisjs/core/services/router'
 
 // Routes protégées avec middleware auth 
@@ -26,9 +24,9 @@ const UsersController = () => import('#controllers/users_controller')
 router.get('/login', [UsersController, 'showLoginPage']).as('loginPage')
 router.post('/login', [UsersController, 'login']).as('login')
 router.get('/register', [UsersController, 'showRegisterPage']).as('registerPage')
-router.post('/register', [UsersController, 'register']).as('register')
+router.post('/register', [UsersController, 'register'])
 router.post('/logout', [UsersController, 'logout']).as('logout')
-
+router.get('/connexion', [UsersController,'index'])
 // Routes protégées
 router
   .group(() => {
@@ -36,15 +34,3 @@ router
     // ... autres routes protégées
   })
   .use(middleware.auth())
-
-
-
-
-
-
-
-
-
-
-
-

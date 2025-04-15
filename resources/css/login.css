@@ -65,7 +65,7 @@ h2 {
 }
 
 a{
-  color: #1d9bf0;
+  color: #ffffff;
 }
 
 input {
@@ -147,7 +147,7 @@ input:focus {
 
 .btn-outlineT {
   background-color: #1d9bf0;
-  color: #ffffff;
+  color: #000000;
   border: 1px solid #333;
   padding: 10px;
 }

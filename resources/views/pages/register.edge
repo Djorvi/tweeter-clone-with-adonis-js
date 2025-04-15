@@ -3,85 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Profil - Obed Mbora</title>
-    @vite(['resources/css/login.css', 'resources/js/app.js'])
-    @stack('dumper')
-
+    <title>Créer votre compte</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        
+        .email-option {
+            color: #1d9bf0;
+            font-weight: bold;
+            margin: 15px 0;
+            cursor: pointer;
+        }
+        
+        .date-section {
+            margin-top: 30px;
+        }
+        
+        .date-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .date-description {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .date-selectors {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .date-selector {
+            flex: 1;
+        }
+        
+        .next-button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 30px;
+            width: 120px;
+        }
+        
+        .next-button:hover {
+            background-color: #333;
+        }
+    </style>
 </head>
+
+
+
+
 <body>
-    <!-- Page de connexion -->
-    <div class="container_flex">    
-        <!-- Page d'inscription (cachée) -->
-        <div class="container" id="signup-page" style="display: none;">
+    <h1>Créer votre compte</h1>
+
+    <form action="/register" method="POST">
+
+        {{csrfField()}}
+        
+        <label >Nom et prénom</label>
+        <input type="text"  class="form-group" name="fullName">
+
+
+        <label >Email</label>
+        <input  class="form-group" type="email"  name="email">
+
+        <label>password</label>
+        <input  class="form-group" type="password" name="password">
+
+        <button type="submit" class="next-button"> Envoyer</button>
+  
+    </form>
     
-            <div class="main-content">
-                <h1>Créer votre compte</h1>
-                
-                <div class="form-group">
-                    <input type="text" placeholder="Nom et prénom" id="fullname">
-                </div>
-                
-                <div class="form-group">
-                    <input type="text" placeholder="Téléphone" id="phone">
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" placeholder="Utiliser un email" id="email">
-                </div>
-                
-                <div class="birthday-section">
-                    <div class="birthday-title">Date de naissance</div>
-                    <div class="birthday-description">
-                        Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.
-                    </div>
-                    
-                    <div class="birthday-fields">
-                        <div class="birthday-field">
-                            <select id="birth-month">
-                                <option value="" disabled selected>Mois</option>
-                                <!-- Mois seront ajoutés par JS -->
-                            </select>
-                        </div>
-                        
-                        <div class="birthday-field">
-                            <select id="birth-day">
-                                <option value="" disabled selected>Jour</option>
-                                <!-- Jours seront ajoutés par JS -->
-                            </select>
-                        </div>
-                        
-                        <div class="birthday-field">
-                            <select id="birth-year">
-                                <option value="" disabled selected>Année</option>
-                                <!-- Années seront ajoutés par JS -->
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="btn btn-blue" id="signup-next-btn">Suivant</button>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <span>Vous avez déjà un compte ? </span>
-                    <a href="#" style="color: #1d9bf0;" id="login-from-signup">Se connecter</a>
-                </div>
+    <div class="date-section">
+        <div class="date-title">Date de naissance</div>
+        <div class="date-description">
+            Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.
+        </div>
+        
+        <div class="date-selectors">
+            <div class="date-selector">
+                <label for="month">Mois</label>
+                <select id="month" name="month">
+                    <option value="">Mois</option>
+                    <option value="01">Janvier</option>
+                    <option value="02">Février</option>
+                    <option value="03">Mars</option>
+                    <option value="04">Avril</option>
+                    <option value="05">Mai</option>
+                    <option value="06">Juin</option>
+                    <option value="07">Juillet</option>
+                    <option value="08">Août</option>
+                    <option value="09">Septembre</option>
+                    <option value="10">Octobre</option>
+                    <option value="11">Novembre</option>
+                    <option value="12">Décembre</option>
+                </select>
             </div>
             
-            <div class="footer">
-                <!-- Même footer que la page de connexion -->
+            <div class="date-selector">
+                <label for="day">Jour</label>
+                <select id="day" name="day">
+                    <option value="">Jour</option>
+                    <!-- Générer les jours 1-31 -->
+                    <script>
+                        for (let i = 1; i <= 31; i++) {
+                            document.write(`<option value="${i < 10 ? '0' + i : i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
             </div>
-        </div>
-    
-        <!-- Menu déroulant profil -->
-        <div class="profile-dropdown" id="profile-dropdown">
-            <div class="dropdown-item" id="logout-btn">
-                <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Se déconnecter
-            </div>
-            <div class="dropdown-item" id="add-account-btn">
-                <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Ajouter un autre compte
+            
+            <div class="date-selector">
+                <label for="year">Année</label>
+                <select id="year" name="year">
+                    <option value="">Année</option>
+                    <!-- Générer les années (ex: 1900-2025) -->
+                    <script>
+                        const currentYear = new Date().getFullYear();
+                        for (let i = currentYear; i >= 1900; i--) {
+                            document.write(`<option value="${i}">${i}</option>`);
+                        }
+                    </script>
+                </select>
             </div>
         </div>
     </div>
+    
+    
+
+
 </body>
 </html>

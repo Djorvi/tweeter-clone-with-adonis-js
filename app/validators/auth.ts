@@ -8,7 +8,7 @@ export const RegisterUserValidator = vine.compile(
       .string()
       .minLength(8)
       .maxLength(32)
-      .confirmed(),
+    
   })
 )
 

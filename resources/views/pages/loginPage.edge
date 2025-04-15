@@ -50,8 +50,8 @@
                 <div class="divider">ou</div>
              
                
-                <button class="btnT btn-outlineT" id="signup-link">
-                Créer un compte
+                <button class="btnT btn-outlineT" >
+                    <a href="register"> Créer un compte</a>
               </button>
               <p style="margin: 1rem 0; font-size: 0.7rem; width: 69%; color:#71767b;">
                 En vous inscrivant, vous acceptez les <a href="#">Conditions d'utilisation</a> et la <a href="#">Politique de confidentialité</a>, 
@@ -63,88 +63,14 @@
                     <span>Vous n'avez pas de compte ? </span>
          
                 </div>
+                
             </div>
 
              
             <button class="btnTS btn-outlineTS">
-              <a href="#"> Se connecter</a>
+              <a href="/connexion"> Se connecter</a>
             </button>
             
-        </div>
-        
- 
-    </div>
-
-        
-        <!-- Page d'inscription (cachée) -->
-        <div class="container" id="signup-page" style="display: none;">
-    
-            <div class="main-content">
-                <h1>Créer votre compte</h1>
-                
-                <div class="form-group">
-                    <input type="text" placeholder="Nom et prénom" id="fullname">
-                </div>
-                
-                <div class="form-group">
-                    <input type="text" placeholder="Téléphone" id="phone">
-                </div>
-                
-                <div class="form-group">
-                    <input type="email" placeholder="Utiliser un email" id="email">
-                </div>
-                
-                <div class="birthday-section">
-                    <div class="birthday-title">Date de naissance</div>
-                    <div class="birthday-description">
-                        Cette information ne sera pas affichée publiquement. Confirmez votre âge, même si ce compte est pour une entreprise, un animal de compagnie ou autre chose.
-                    </div>
-                    
-                    <div class="birthday-fields">
-                        <div class="birthday-field">
-                            <select id="birth-month">
-                                <option value="" disabled selected>Mois</option>
-                                <!-- Mois seront ajoutés par JS -->
-                            </select>
-                        </div>
-                        
-                        <div class="birthday-field">
-                            <select id="birth-day">
-                                <option value="" disabled selected>Jour</option>
-                                <!-- Jours seront ajoutés par JS -->
-                            </select>
-                        </div>
-                        
-                        <div class="birthday-field">
-                            <select id="birth-year">
-                                <option value="" disabled selected>Année</option>
-                                <!-- Années seront ajoutés par JS -->
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                
-                <button class="btn btn-blue" id="signup-next-btn">Suivant</button>
-                
-                <div style="text-align: center; margin-top: 40px;">
-                    <span>Vous avez déjà un compte ? </span>
-                    <a href="#" style="color: #1d9bf0;" id="login-from-signup">Se connecter</a>
-                </div>
-            </div>
-            
-            <div class="footer">
-                <!-- Même footer que la page de connexion -->
-            </div>
-        </div>
-    
-        <!-- Menu déroulant profil -->
-        <div class="profile-dropdown" id="profile-dropdown">
-            <div class="dropdown-item" id="logout-btn">
-                <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i> Se déconnecter
-            </div>
-            <div class="dropdown-item" id="add-account-btn">
-                <i class="fas fa-user-plus" style="margin-right: 10px;"></i> Ajouter un autre compte
-            </div>
         </div>
     </div>
 </body>

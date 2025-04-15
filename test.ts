@@ -1,4 +1,4 @@
-export type User = {
+/*export type User = {
 id: number
 firstname: string
 lastname: string
@@ -164,4 +164,4 @@ export const users: User[] = [
 
 
 
-
+*/
