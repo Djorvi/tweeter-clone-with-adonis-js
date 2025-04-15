@@ -187,8 +187,9 @@
         <div class="connexion">
             <h1>Connectez-vous à X</h1>
         
-            <form class="login-form" action="/login" method="POST">
-
+            <form  action="/login" method="POST" class="login-form">
+                {{csrfField()}}
+                
                 <div class="input-group">
                     <input type="email" name="email" placeholder="Email" required>
                 </div>
