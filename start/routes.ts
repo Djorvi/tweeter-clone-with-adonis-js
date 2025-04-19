@@ -1,36 +1,29 @@
-/*
-|--------------------------------------------------------------------------
-| Routes file
-|--------------------------------------------------------------------------
-|
-| The routes file is used for defining the HTTP routes.
-|
-*/
+// routes.ts
+
+import router from '@adonisjs/core/services/router'
+import { middleware } from '#start/kernel'
 
 const HomeController = () => import('#controllers/home_controller')
 const ProfileController = () => import('#controllers/profiles_controller')
-import router from '@adonisjs/core/services/router'
-
-// Routes protégées avec middleware auth 
-router.get('/',[HomeController, 'index'])
-router.get('/profile', [ProfileController,'show'])
-
-import { middleware } from '#start/kernel'
-
 const UsersController = () => import('#controllers/users_controller')
 
+router.get('/', [UsersController, 'showLoginPage'])
+router.get('/login', [UsersController, 'showLoginPage'])
+router.post('/login', [UsersController, 'login'])
 
-// Routes publiques
-router.get('/login', [UsersController, 'showLoginPage']).as('loginPage')
-router.post('/login', [UsersController, 'login']).as('login')
 router.get('/register', [UsersController, 'showRegisterPage']).as('registerPage')
 router.post('/register', [UsersController, 'register'])
+
 router.post('/logout', [UsersController, 'logout']).as('logout')
-router.get('/connexion', [UsersController,'index'])
+router.get('/connexion', [UsersController, 'index2'])
+
+router.get('/profile', [ProfileController, 'show'])
+router.get('/accueil', [UsersController, 'home2'])
+
 // Routes protégées
 router
   .group(() => {
     router.get('/home', [HomeController, 'index']).as('home')
-    // ... autres routes protégées
+    router.post('/tweets', [HomeController, 'store'])
   })
   .use(middleware.auth())

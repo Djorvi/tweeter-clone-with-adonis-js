@@ -189,6 +189,8 @@
         
             <form  action="/login" method="POST" class="login-form">
                 {{csrfField()}}
+             
+                
                 
                 <div class="input-group">
                     <input type="email" name="email" placeholder="Email" required>
@@ -199,12 +201,17 @@
                 </div>
                 
                  
-                <button class="btnTS btn-outlineTS">
-                    <a href="home"> Se connecter</a>
+                <button type="submit" class="btnTS btn-outlineTS">
+                   Se connecter
                   </button>
                   
             </form>
 
+            <div style="  font-weight: 600 ;margin-top: 40px; padding-left: 10%;">
+                <span>Vous n'avez pas de compte ? <a href="register"> Créer votre compte</a> </span> 
+     
+            </div>
+        </div>
         </div>
       
     </div>

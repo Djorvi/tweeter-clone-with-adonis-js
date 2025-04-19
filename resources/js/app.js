@@ -124,8 +124,7 @@
                 if (!isLoggedIn) {
                     // Simuler une connexion
                     isLoggedIn = true;
-                    alert("Connecté en tant que Obed");
-                    
+                   
                     // Afficher le menu profil
                     profileDropdown.style.display = 'block';
                 } else {
@@ -139,7 +138,7 @@
             logoutBtn.addEventListener('click', function() {
                 isLoggedIn = false;
                 profileDropdown.style.display = 'none';
-                alert("Vous avez été déconnecté");
+               
             });
             
             // Ajouter un autre compte
@@ -174,3 +173,50 @@
         });
 
 
+
+
+        const posteButton = document.getElementById('posteButton');
+        const publishPanel = document.getElementById('publishPanel');
+        const overlay = document.getElementById('overlay');
+        const cancelPublish = document.getElementById('cancelPublish');
+    
+        
+        // Ouvrir le panneau de publication
+        posteButton.addEventListener('click', function() {
+            publishPanel.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Empêcher le défilement
+        });
+        
+        // Fermer le panneau
+        function closePublishPanel() {
+            publishPanel.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Rétablir le défilement
+        }
+        
+        overlay.addEventListener('click', closePublishPanel);
+        cancelPublish.addEventListener('click', closePublishPanel);
+        
+        // Ajouter un emoji au texte
+        emojiOptions.forEach(emoji => {
+            emoji.addEventListener('click', function() {
+                publishTextarea.value += emoji.textContent;
+                publishTextarea.focus();
+            });
+        });
+        
+        // Soumettre la publication
+        submitPublish.addEventListener('', function() {
+            const content = publishTextarea.value.trim();
+            if (content) {
+                alert('Publication envoyée : ' + content);
+                publishTextarea.value = '';
+                closePublishPanel();
+                
+                // Ici vous pourriez ajouter la logique pour afficher la nouvelle publication
+                // dans le flux existant
+            } else {
+                alert('Veuillez écrire quelque chose avant de publier');
+            }
+        });

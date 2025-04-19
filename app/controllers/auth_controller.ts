@@ -10,4 +10,4 @@ export default class AuthController {
     await auth.login(user)
     return response.redirect('/home')
   }
-}
+}Z

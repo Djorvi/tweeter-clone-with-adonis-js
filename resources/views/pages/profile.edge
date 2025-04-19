@@ -403,94 +403,146 @@
     
     
     
+
+
+/* Conteneur principal */
+.Notifications {
+    padding: 20px;
+    width: 400px;
+    border-radius: 10px;
+    margin-left: 67%; 
+    position: fixed;
+
     
+  
+}
+
+/* Barre de recherche */
+.search-box {
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    border: 1px solid rgb(47, 47, 47);
+    color: #ffffff;
+    background:rgb(0, 0, 0)
+}
+
+/* Section Premium */
+.premium-box {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.premium-box h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    padding-right: 18%;
     
-    /* Conteneur principal */
-    .Notifications {
-        padding: 20px;
-        width: 400px;
-        border-radius: 10px;
-        position: fixed;
-        margin-left: 67%;   
-    }
-    
-    /* Barre de recherche */
-    .search-box {
-        margin-bottom: 15px;
-    }
-    
-    .search-box input {
-        width: 100%;
-        background: #000;
-        padding: 10px;
-        border: none;
-        border-radius: 20px;
-        border: 1px solid rgb(47, 47, 47);
-        color:rgb(255, 255, 255);
-    }
-    
-    /* Section Premium */
-    .premium-box {
-        border: 1px solid rgb(47, 47, 47);
-        padding: 15px;
-        border-radius: 10px;
-        margin-bottom: 15px;
-        color: #ffffff;
-    }
-    
-    .premium-box h3 {
-        color: #fff;
-        margin-bottom: 10px;
-        padding-right: 18%;
-        
-    }
-    
-    P{
-        line-height: 1.2;
-        font-size: 14px;
-        font-family: Arial, Helvetica, sans-serif;
-        color: #979595;
-    
-    }
-    
-    .subscribe-btn {
-        background: #00acee;
-        border: none;
-        padding: 10px;
-        color: white;
-        border-radius: 20px;
-        cursor: pointer;
-        margin-top: 4%;
-        width: 40%;
-    }
-    
-    /* Section Erreur de connexion */
-    .connection-box {
-        border: 1px solid rgb(47, 47, 47);
-        padding: 25%;
-        border-radius: 10px;
-    }
-    
-    .retry-btn {
-       color: #d1d1d1;
-       cursor: pointer;
-       border-radius: 12px;
-       background-color: #00acee;
-    }
-    
-    .connection-box2 {
-        border: 1px solid rgb(47, 47, 47);
-        padding: 22%;
-        border-radius: 10px;
-        margin-top: 5%;
-        
-    }
+}
+
+P{
+    line-height: 1.2;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #979595;
+
+}
+
+.subscribe-btn {
+    background: #00acee;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 4%;
+    width: 40%;
+}
+
+/* Section Erreur de connexion */
+.connection-box {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 25%;
+    border-radius: 10px;
+}
+
+.retry-btn {
+   color: #d1d1d1;
+   cursor: pointer;
+   border-radius: 12px;
+   background-color: #00acee;
+}
+
+.connection-box2 {
+    border: 1px solid rgb(47, 47, 47);
+    padding: 22%;
+    border-radius: 10px;
+    margin-top: 5%;
+}
 
 
 
-
-
-
+.follow-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.trend-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #e6ecf0;
+}
+.trend-category {
+    color: #657786;
+    font-size: 14px;
+}
+.trend-name {
+    font-weight: bold;
+}
+.trend-count {
+    color: #657786;
+    font-size: 14px;
+}
+.premium-btn {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin: 10px 0;
+}
+.footer {
+    color: #657786;
+    font-size: 12px;
+    margin-top: 15px;
+}
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 5px;
+}
+.footer-link {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+hr {
+    border: 0.5px solidrgb(0, 0, 0);
+    margin: 15px 0;
+}
 
 
 
@@ -672,7 +724,7 @@
                 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g>
                 </div>
             <nav class="menu-bar">
-                <span class="Home-Home"><a href="http://localhost:3333/"><i class='bx bx-home-alt-2' style='color:#f1eeee'></i></i></a>Home</span>
+                <span class="Home-Home"><a href="http://localhost:3333/home"><i class='bx bx-home-alt-2' style='color:#f1eeee'></i></i></a>Home</span>
                 <li><a href="#"><i class='bx bx-search' style='color:#d9d9d9ee'></i></a>Explore</li>
                 <li><a href="#"><i class='bx bx-bell' style='color:#d9d9d9ee'></i></a>Notifications</li>
                 <li><a href="#"><i class='bx bx-envelope' style='color:#d9d9d9ee'></i></a>Messages</li>
@@ -693,7 +745,7 @@
              <!-- Bouton profil -->
              <div class="profile-ob" id="profile-obed1">
                 <div class="profile">
-                    <img src="https://pbs.twimg.com/profile_images/1876059828407226368/HE8j7zoP_400x400.jpg" class="profile-button1" id="saved-account">
+                    <img src="https://pbs.twimg.com/profile_images/1876059828407226368/HE8j7zoP_400x400.jpg" alt="Profile" class="profile-pic">
                     <div class="obed-Mbora" id="obed-Mbora">
                         <p class="PPPP"><a href="">Obed Mbora<i class='bx bx-lock' style='color:#ffff'></i></a></p>
                         <p class="ObedMbora">@ObedMbora</p>  
@@ -782,30 +834,44 @@
 
 
            <!-- Section tendances -->
-
-    <div class="Notifications">
-        <div class="search-box">
-            <input type="text" placeholder="Search">
+   
+            <div class="Notifications">
+            <div class="search-box">
+                <input type="text" placeholder="Search">
+            </div>
+    
+            <div class="premium-box">
+                <h3>Abonnez-vous à Premium</h3>
+                <p class="h">Abonnez-vous pour débloquer de nouvelles fonctionnalités et, 
+                  si vous êtes éligible,recevez une part des revenus.</p>
+                <button class="subscribe-btn">S'abonner</button>
+            </div>
+    
+            <div class="connection-box">
+                    <div class="trend-item">
+            <div class="trend-category">Tendances au Congo-Kinshasa</div>
+            <div class="trend-name">Amen</div>
+            <div class="trend-count">166 000 messages</div>
+            <div class="trend-category">Tendances au Congo-Kinshasa</div>
+            <div class="trend-name">Amen</div>
+            <div class="trend-count">166 000 messages</div>
+            
         </div>
+            </div>
+    
 
-        <div class="premium-box">
-            <h3>Subscribe to Premium</h3>
-            <p>Subscribe to unlock new features and if eligible, receive a share of revenue.</p>
-            <button class="subscribe-btn">Subscribe</button>
+          <div class="footer">
+            <div class="footer-links">
+                <span class="footer-link">Conditions d'utilisation</span>
+                <span class="footer-link">politique de confidentialité</span>
+                <span class="footer-link">Politique relative aux cookies</span>
+                <span class="footer-link">Accessibilité</span>
+                <span class="footer-link">Informations sur les annonces</span>
+                <span class="footer-link">Plus ---</span>
+            </div>
+            <div>© 2025 X Corp.</div>
         </div>
-
-        <div class="connection-box">
-            <p>Looks like you lost your connection. Please check it and try again.</p>
-            <button class="retry-btn">Retry</button>
         </div>
-
-        <div class="connection-box2">
-            <p>Looks like you lost your connection. Please check it and try again.</p>
-            <button class="retry-btn">Retry</button>
-        </div>
-       </div>
-    </div>
-
     </div>
   </body>
 </html>

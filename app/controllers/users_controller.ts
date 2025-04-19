@@ -1,3 +1,4 @@
+
 import { HttpContext } from '@adonisjs/core/http'
 import User from '#models/user'
 import { RegisterUserValidator, LoginUserValidator } from '#validators/auth'
@@ -38,28 +39,42 @@ export default class UsersController {
   }
   
   public async showLoginPage({ view }: HttpContext) {
+
     return view.render('pages/loginPage') }
 
 
-
-  public async login({ request, response, auth, session }: HttpContext) {
+    public async login({ request, response, auth, session }: HttpContext) {
+      const userData = request.all()
     
-    const userData = request.all()
-    const validatedData = await LoginUserValidator.validate(userData)
-    try {
+      // Validation des données d'entrée
+      const validatedData = await LoginUserValidator.validate(userData)
       
-      const validateInputData = await User.verifyCredentials(
-        validatedData.email,validatedData.password)
-      await auth.use('web').login(validateInputData)
-      session.flash('success', 'Connexion réussie')
-      return response.redirect('/home')
+      try {
+        // Chercher l'utilisateur par email
+        const user = await User.query().where('email', validatedData.email).firstOrFail()
     
-    } catch (error) {
-      session.flash('error', 'Erreur lors de la connexion')
-      console.log('ERROR :',error)
-      return response.redirect().back()
+        // Vérifier le mot de passe
+        const isPasswordValid = await user.verifyPassword(validatedData.password)
+    
+        if (isPasswordValid) {
+          // Se connecter
+          await auth.use('web').login(user)
+          session.flash('success', 'Connexion réussie')
+          return response.redirect('/home')
+        } else {
+          // Si le mot de passe est incorrect
+          session.flash('error', 'Identifiants incorrects')
+          return response.redirect().back()
+        }
+        
+      } catch (error) {
+        // Si l'utilisateur n'existe pas ou une autre erreur
+        session.flash('error', 'Erreur lors de la connexion')
+        console.log('ERROR :', error)
+        return response.redirect().back()
+      }
     }
-  }
+    
   
   
     public async logout({ auth, response }: HttpContext) {
@@ -72,25 +87,17 @@ export default class UsersController {
 
 
 
-      public async index({ view }: HttpContext) {
-        // const currentUser 
-    
-        return view.render('pages/connexion', {  })
+      public async index2({ view }: HttpContext) {
+      
+        return view.render('pages/connexion',)
+      }
+
+      
+      public async home2({ view }: HttpContext) {
+      
+        return view.render('pages/home',)
       }
     }
-
-
-
-
-  
-
-
-
-
-
-
-
-
 
 
 

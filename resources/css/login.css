@@ -67,6 +67,9 @@ h2 {
 a{
   color: #ffffff;
 }
+.colore-span{
+  color: #1d9bf0;
+}
 
 input {
   width: 100%;
@@ -111,6 +114,7 @@ input:focus {
   margin-bottom: 15px;
   font-size: 16px;
   border: none;
+  
 }
 
 
@@ -222,7 +226,7 @@ input:focus {
 }
 
 
-.footer a  {
+.footer   {
   color: #888787;
   text-decoration: none;
 }
