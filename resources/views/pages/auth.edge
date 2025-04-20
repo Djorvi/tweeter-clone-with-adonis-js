@@ -22,12 +22,31 @@
               <a href="#"><i class='bx bx-bookmarks' style='color:#0289d7'></i></a>
               <a href="#"><i class='bx bx-smile' style='color:#0289d7'></i></a>
             </div>
-            <button type="submit" class="button3">Post</button>
+            <button id="publishPanel" type="submit" class="button3">Post</button>
           </div>
         </div>
       </div>
     </div>
   </form>
+
+  <div class="publish-panel" id="publishPanel">
+    <h2>Créer une publication</h2>
+    <textarea class="publish-textarea" placeholder="Exprimez-vous..."></textarea>
+    
+    <div class="emoji-picker">
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+        <div class="emoji-option"><i class='bx bx-image-alt' style='color:#0289d7'></i></div>
+    </div>
+    
+    <div class="publish-actions">
+        <button class="publish-btn publish-cancel" id="cancelPublish">Annuler</button>
+        <button class="publish-btn publish-submit" id="submitPublish">Publier</button>
+    </div>
+</div>
 
   <!-- Affichage des tweets -->
   @each(tweet in tweets)
