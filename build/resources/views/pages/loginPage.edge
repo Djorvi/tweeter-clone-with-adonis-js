@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>login</title>
+    @vite(['resources/css/login.css', 'resources/js/app.js'])
+    @stack('dumper')
+
+</head>
+<body>
+    <!-- Page de connexion -->
+    <div class="container_flex">
+
+
+        <div class="header">
+            <div class="logo">
+                <svg viewBox="0 0 24 24" aria-hidden="true" width="380"  height="380" fill="#edecec">
+                    <g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 
+                        21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g>
+                </svg>
+            </div>
+        </div>
+
+
+        <div class="container" id="login-page">        
+            <div class="main-content">
+                <h1>ça se passe maintenat</h1>
+
+                <div class="incr">
+                        <h2>Inscrivez-vous</h2>
+                    </div>
+                
+                <!-- Compte sauvegardé -->
+                <div class="account-item" id="saved-account">
+                    <div class="account-avatar">O</div>
+                    <div class="account-details">
+                        <div>Se connecter en tant que Obed</div>
+                        <div class="account-email">obedmbora60@gmail.com</div>
+                    </div>
+                </div>
+            
+                
+                <button class="btnT btn-outline">
+                    <i class="fab fa-apple" style="margin-right: 10px;"></i>
+                    Se connecter avec Apple
+                </button>
+                
+                <div class="divider">ou</div>
+             
+               
+                <button class="btnT btn-outlineT" >
+                    <a href="register"> Créer un compte</a>
+              </button>
+              <p style="margin: 1rem 0; font-size: 0.7rem; width: 69%; color:#71767b;">
+                En vous inscrivant, vous acceptez les <span class="colore-span">Conditions d'utilisation</span> et la <span class="colore-span">Politique de confidentialité</a>, 
+                y compris l'<span class="colore-span">Utilisation des cookies</a>.
+              </p>
+    
+                
+                <div style="  font-weight: 600 ;margin-top: 40px;">
+                    <span>Vous n'avez pas de compte ? </span>
+         
+                </div>
+                
+            </div>
+
+             
+            <button class="btnTS btn-outlineTS">
+              <a href="/connexion"> Se connecter</a>
+            </button>
+            
+        </div>
+    </div>
+</body>
+</html>
