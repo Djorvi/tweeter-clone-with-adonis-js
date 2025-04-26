@@ -5,13 +5,25 @@
   "type": "module",
   "license": "UNLICENSED",
   "scripts": {
-  "start": "node build/start/server.js",
-"build": "node ace build && cp -r resources/views build/resources/views",
-  "dev": "node ace serve --hmr",
-  "test": "node ace test",
-  "lint": "eslint .",
-  "format": "prettier --write .",
-  "typecheck": "tsc --noEmit"
+    "start": "node build/bin/server.js",
+    "build": "node ace build && cp -r resources/views build/resources/views",
+    "dev": "node ace serve --hmr",
+    "test": "node ace test",
+    "lint": "eslint . --ext .ts,.js --fix",
+    "format": "prettier --write .",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf build",
+    "rebuild": "npm run clean && npm run build",
+    "start:dev": "node ace serve --watch",
+    "migrate": "node ace migration:run --force",
+    "migrate:rollback": "node ace migration:rollback",
+    "migrate:refresh": "node ace migration:refresh --force",
+    "migrate:reset": "node ace migration:reset --force",
+    "seed": "node ace db:seed",
+    "healthcheck": "node ace health:check",
+    "production": "cross-env NODE_ENV=production npm run rebuild && cd build && npm ci --omit=dev && node bin/server.js",
+    "check": "npm run lint && npm run typecheck && npm run test",
+    "full-install": "npm install && npm run build"
   },
   "imports": {
     "#controllers/*": "./app/controllers/*.js",
@@ -43,6 +55,7 @@
     "@types/luxon": "^3.4.2",
     "@types/node": "^22.13.2",
     "autoprefixer": "^10.4.21",
+    "cross-env": "^7.0.3",
     "eslint": "^9.20.1",
     "hot-hook": "^0.4.0",
     "pino-pretty": "^13.0.0",
@@ -66,7 +79,7 @@
     "edge.js": "^6.2.1",
     "jsonwebtoken": "^9.0.2",
     "luxon": "^3.5.0",
-    "pg": "^8.13.3",
+    "pg": "^8.15.6",
     "reflect-metadata": "^0.2.2"
   },
   "hotHook": {
@@ -75,6 +88,10 @@
       "./app/middleware/*.ts"
     ]
   },
-  "prettier": "@adonisjs/prettier-config"
+  "prettier": "@adonisjs/prettier-config",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@9.8.1"
 }
-
