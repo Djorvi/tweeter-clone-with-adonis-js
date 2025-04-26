@@ -6,10 +6,13 @@ export default await Env.create(new URL('../', import.meta.url), {
     HOST: Env.schema.string({ format: 'host' }),
     LOG_LEVEL: Env.schema.string(),
     SESSION_DRIVER: Env.schema.enum(['cookie', 'memory']),
+    DB_CONNECTION: Env.schema.string.optional(),
     DB_HOST: Env.schema.string({ format: 'host' }),
     DB_PORT: Env.schema.number(),
     DB_USER: Env.schema.string(),
-    DB_PASSWORD: Env.schema.string.optional(),
-    DB_DATABASE: Env.schema.string()
+    DB_PASSWORD: Env.schema.string(),
+    DB_DATABASE: Env.schema.string(),
+    DB_SSL: Env.schema.boolean.optional(),
+    DATABASE_URL: Env.schema.string.optional()
 });
 //# sourceMappingURL=env.js.map

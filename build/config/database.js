@@ -1,25 +1,18 @@
 import env from '#start/env';
 import { defineConfig } from '@adonisjs/lucid';
-function getRequiredEnv(key) {
-    const value = env.get(key);
-    if (!value) {
-        throw new Error(`Missing required environment variable: ${key}`);
+function getDatabaseConnection() {
+    const url = env.get('DATABASE_URL');
+    if (typeof url === 'string') {
+        return url;
     }
-    return value;
+    return `postgresql://${env.get('DB_USER')}:${env.get('DB_PASSWORD')}@${env.get('DB_HOST')}:${env.get('DB_PORT')}/${env.get('DB_DATABASE')}`;
 }
 export default defineConfig({
-    connection: env.get('DB_CONNECTION', 'pg'),
+    connection: 'pg',
     connections: {
         pg: {
             client: 'pg',
-            connection: {
-                host: getRequiredEnv('DB_HOST'),
-                port: Number(getRequiredEnv('DB_PORT')),
-                user: getRequiredEnv('DB_USER'),
-                password: getRequiredEnv('DB_PASSWORD'),
-                database: getRequiredEnv('DB_DATABASE'),
-                ssl: env.get('DB_SSL') ? { rejectUnauthorized: false } : false
-            },
+            connection: getDatabaseConnection(),
             migrations: {
                 naturalSort: true,
                 paths: ['database/migrations']
