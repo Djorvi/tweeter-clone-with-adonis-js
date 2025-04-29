@@ -1,18 +1,14 @@
 import env from '#start/env';
 import { defineConfig } from '@adonisjs/lucid';
-function getDatabaseConnection() {
-    const url = env.get('DATABASE_URL');
-    if (typeof url === 'string') {
-        return url;
-    }
-    return `postgresql://${env.get('DB_USER')}:${env.get('DB_PASSWORD')}@${env.get('DB_HOST')}:${env.get('DB_PORT')}/${env.get('DB_DATABASE')}`;
-}
-export default defineConfig({
-    connection: 'pg',
+const dbConfig = defineConfig({
+    connection: 'postgres',
     connections: {
-        pg: {
+        postgres: {
             client: 'pg',
-            connection: getDatabaseConnection(),
+            connection: {
+                connectionString: env.get('DATABASE_URL'),
+                ssl: { rejectUnauthorized: false }
+            },
             migrations: {
                 naturalSort: true,
                 paths: ['database/migrations']
@@ -20,4 +16,5 @@ export default defineConfig({
         }
     }
 });
+export default dbConfig;
 //# sourceMappingURL=database.js.map

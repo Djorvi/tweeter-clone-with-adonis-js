@@ -40,6 +40,8 @@ export default class UsersController {
   
   public async showLoginPage({ view }: HttpContext) {
 
+    console.log("Login page");
+    
     return view.render('pages/loginPage') }
 
 

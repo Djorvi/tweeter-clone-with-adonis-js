@@ -24,6 +24,7 @@ export default class UsersController {
         }
     }
     async showLoginPage({ view }) {
+        console.log("Login page");
         return view.render('pages/loginPage');
     }
     async login({ request, response, auth, session }) {
