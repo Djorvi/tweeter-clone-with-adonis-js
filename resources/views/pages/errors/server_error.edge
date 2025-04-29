@@ -1,41 +1,17 @@
-@layout('layouts/app')
-
-@section('content')
-  <div class="error-container">
-    <h1>Erreur du Serveur (500)</h1>
-    <p>Une erreur inattendue s'est produite</p>
-    
-    @if(env('NODE_ENV') === 'development')
-      <div class="error-details">
-        <h3>Détails techniques :</h3>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erreur Serveur</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #d9534f; }
+    </style>
+</head>
+<body>
+    <h1>500 - Erreur Serveur</h1>
+    @if(error)
         <p>{{ error.message }}</p>
-        <pre>{{ error.stack }}</pre>
-      </div>
     @endif
-    
-    <a href="/" class="home-link">Retour à l'accueil</a>
-  </div>
-@endsection
-
-@section('styles')
-  <style>
-    .error-container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 2rem;
-      text-align: center;
-    }
-    .error-details {
-      margin-top: 2rem;
-      text-align: left;
-      background: #f8f8f8;
-      padding: 1rem;
-      border-radius: 4px;
-    }
-    .home-link {
-      display: inline-block;
-      margin-top: 1rem;
-      color: #3498db;
-    }
-  </style>
-@endsection
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

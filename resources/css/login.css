@@ -292,3 +292,21 @@ select {
   color: #fff;
   font-size: 16px;
 }
+
+
+.legal-text {
+  margin: 1rem 0;
+  font-size: 0.7rem;
+  width: 69%;
+  color: #71767b;
+}
+
+.account-prompt {
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.colore-span {
+  color: #1d9bf0;
+  cursor: pointer;
+}

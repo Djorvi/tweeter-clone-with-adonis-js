@@ -1,2 +1,17 @@
-@layout('layouts/app')
-@section('content')<h1>Erreur</h1>@endsection
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erreur Serveur</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #d9534f; }
+    </style>
+</head>
+<body>
+    <h1>500 - Erreur Serveur</h1>
+    @if(error)
+        <p>{{ error.message }}</p>
+    @endif
+    <a href="/">Retour à l'accueil</a>
+</body>
+</html>

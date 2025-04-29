@@ -97,6 +97,19 @@ export default class UsersController {
       
         return view.render('pages/home',)
       }
+
+      
+  async terms({ view }: HttpContext) {
+    return view.render('pages/legal/terms')
+  }
+
+  async privacy({ view }: HttpContext) {
+    return view.render('pages/legal/privacy')
+  }
+
+  async cookies({ view }: HttpContext) {
+    return view.render('pages/legal/cookies')
+  }
     }
 
 

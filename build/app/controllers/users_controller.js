@@ -58,5 +58,14 @@ export default class UsersController {
     async home2({ view }) {
         return view.render('pages/home');
     }
+    async terms({ view }) {
+        return view.render('pages/legal/terms');
+    }
+    async privacy({ view }) {
+        return view.render('pages/legal/privacy');
+    }
+    async cookies({ view }) {
+        return view.render('pages/legal/cookies');
+    }
 }
 //# sourceMappingURL=users_controller.js.map
