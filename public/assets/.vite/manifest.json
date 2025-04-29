@@ -4,6 +4,11 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/css/login.css": {
+    "file": "login-5OFf9t_X.css",
+    "src": "resources/css/login.css",
+    "isEntry": true
+  },
   "resources/js/app.js": {
     "file": "app-nTFJ1fpT.js",
     "name": "app",
